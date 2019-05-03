@@ -22,17 +22,14 @@ exports.uploadHandler = (req, res) => {
 }
 
 exports.addPics = (req, res) => {
-	console.log(req.file)
+	console.log(req.file, req.body)
 	/*Album.find()
 		.exec()
 		.then(album => {
 			if(album.length < 1){
 				res.status(404).end('No album se encontraron')
 			}
-
-
-
-			album[0].
+			album[0].pictures
 		})
 		.catch(err => {
 			return res.status(500).end('error')

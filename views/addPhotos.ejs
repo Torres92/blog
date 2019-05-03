@@ -64,25 +64,33 @@
       </div>
     </header>
     <main class="main-content">
-     
-        <div class="container-fluid photos">
-            <form action="/post/pics" method="post" enctype="multipart/form-data">
 
-          <div class="row align-items-stretch" id="fotos">
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+      <div class="container-fluid photos">
+
+
+        <div class="row align-items-stretch" id="fotos">
+
+          <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up">
+            <form action="/post/pics" method="post" enctype="multipart/form-data">
               <a href="#" onclick="addPhoto()" class="d-block photo-item">
                 <img src="images/blank_.png" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
                   <div class="photo-text-more">
-                    <h3 class="heading">Añadir Foto</h3>
-                    <span class="meta">42 Photos</span>
+                    <h3 class="heading" >Añadir Foto</h3>
+                    <span class="meta">submit foto</span>
                   </div>
                 </div>
-                <input type="image" id="file-input" name="postImg" class="form-control" style="display: none;">
+                <input type="file" id="file-input" name="postImg" class="form-control" style="display: none;">
               </a>
-            </div>
-
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="row form-group">
+                <div class="col-md-12" style="text-align:center">
+                  <input type="submit" id="submit" value="Guardar" class="btn btn-primary btn-md text-white">
+                </div>
+              </div>
+            </form>
+          </div>
+          <!--
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="100">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_5.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -93,7 +101,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="200">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_1.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -103,7 +111,7 @@
               </a>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_2.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -115,7 +123,7 @@
               </a>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="100">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_3.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -126,7 +134,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="200">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_6.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -138,7 +146,7 @@
               </a>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_7.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -149,7 +157,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="100">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_8.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -160,7 +168,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="200">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_9.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -173,7 +181,7 @@
             </div>
 
 
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_10.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -184,7 +192,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="100">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_1.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -195,7 +203,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="200">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_2.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -207,7 +215,7 @@
               </a>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_3.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -218,7 +226,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="100">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_4.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -229,7 +237,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="200">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_5.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -241,7 +249,7 @@
               </a>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_6.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -252,7 +260,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="100">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_7.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -263,7 +271,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="200">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_8.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -275,7 +283,7 @@
               </a>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="100">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_9.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -286,7 +294,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="100">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_4.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -297,7 +305,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="200">
               <a href="#" class="d-block photo-item">
                 <img src="images/img_5.jpg" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -308,19 +316,11 @@
                 </div>
               </a>
             </div>
-
-
-            <div class="row form-group">
-              <div class="col-md-12">
-                <input type="submit" value="Guardar" class="btn btn-primary btn-md text-white">
-              </div>
-            </div>
-          </div>
+-->
 
 
         </div>
-      </form>
-
+      </div>
       <button id="add">+ agrega mas columnas</button>
       <div class="row justify-content-center">
         <div class="col-md-12 text-center py-5">
@@ -356,27 +356,51 @@
 
   <script>
     function addPhoto() {
+      console.log()
       var element = document.getElementById("file-input")
       element.click()
+      setTimeout(() => {
+        var element = document.getElementById("submit")
+      }, 10000)
     }
-
-
-
-    /*
-    function myFunction() {
-      console.log('jalooooo')
-      var dv = document.createElement("div");
-      console.log(dv, 'dvvv?')
-      dv.class = "col-6 col-md-6 col-lg-4";
-      dv.innerHTML = "<a href='#' class='d-block photo-item'><img src='images/img_4.jpg' alt='Image' class='img-fluid'> <div class='photo-text-more'> <div class='photo-text-more'>  <h3 class='heading'>Añadir Foto</h3> <span class='meta'>42 Photos</span> </div> </div> </a>'"
-      document.getElementById("fotos").appendChild(dv);
-    }*/
   </script>
   <script type="text/javascript">
     $(function () {
       $("#add").click(function () {
+        var n = $('.pics').length;
+        if (n === 0 || n === 3 || n === 6 || n === 9 || n === 12 || n === 15 || n === 18 || n === 21 || n === 24 || n === 27 || n === 30 || n === 33 || n === 36 || n === 39 || n === 42 || n === 45 || n === 48 || n === 51 || n === 54 || n === 57 || n === 60 || n === 63 || n === 66 || n === 69 || n === 72 || n === 75 || n === 78 || n === 81 || n === 84
+        ) {
+          var a = 0;
+        }
+        if (n === 1 || n === 4 ||
+          n === 7 || n === 10 || n === 13 || n === 16 || n === 19 || n === 22 || n === 25 || n === 28 || n === 31 || n === 34 || n === 37 || n === 40 || n === 43 || n === 46 || n === 49 || n === 52 || n === 55 || n === 58 || n === 61 || n === 64 || n === 67 || n === 70 || n === 73 || n === 76 || n === 79 || n === 82 || n === 85
+        ) {
+          var a = 100;
+        }
+        if (n === 2 || n === 5 || n === 8 || n === 11 || n === 14 || n === 17 || n === 20 || n === 23 || n === 26 || n === 29 || n === 32 || n === 35 || n === 38 || n === 41 || n === 44 || n === 47 || n === 50 || n === 53 || n === 56 || n === 59 || n === 62 || n === 65 || n === 68 || n === 71 || n === 74 || n === 77 || n === 80 || n === 83 || n === 86
+        ) {
+          var a = 200;
+        }
+        console.log(n)
         div = document.createElement('div');
-        $(div).addClass("col-6 col-md-6 col-lg-4").html("<a href='#' class='d-block photo-item'><img src='images/img_4.jpg' alt='Image' class='img-fluid'> <div class='photo-text-more'> <div class='photo-text-more'>  <h3 class='heading'>Añadir Foto</h3> <span class='meta'>42 Photos</span> </div> </div> </a>'");
+        $(div).addClass("col-6 col-md-6 col-lg-4 pics").html(
+          `<form action='/post/pics' method='post' enctype='multipart/form-data'>
+            <a href='#' onclick="addPhoto()" class='d-block photo-item'>
+              <img src='images/blank_.png' alt='Image' class='img-fluid'>
+              <div class='photo-text-more'>
+                <div class='photo-text-more'>
+                  <h3 class='heading' onclick='addPhoto()'>Añadir Foto</h3>
+                  <span class='meta'>submit foto</span>
+                </div>
+              </div>
+              <input type='file' id='file-input' name='postImg' class='form-control' style='display: none;'>
+            </a>
+            <div class='row form-group'>
+              <div class='col-md-12'  style='text-align:center'><input type='submit' id='submit' value='Guardar' class='btn btn-primary btn-md text-white'></div>
+            </div>
+          </form>`);
+        $(div).attr("data-aos", "fade-up");
+        $(div).attr("data-aos-delay", a);
         $("#fotos").append(div);
       });
     });
