@@ -11,6 +11,7 @@ let postSchema = new Schema({
 			name: {type: String}
 		}
 	],
+	mainPic: {type: String},
 	views: {
 		n: {type: Number, default:0}
 	},

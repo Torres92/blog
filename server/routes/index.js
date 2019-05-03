@@ -11,10 +11,10 @@ router.get('/blog', index.blog)
 
 router.get('/bio', index.bio)
 
-router.get('/contact', index.contact)
+router.get('/newGallery', index.newGallery)
 
 
-router.get('/newpost', index.newpost)
+router.get('/addPhotos', index.add)
 
 
 module.exports = router;
