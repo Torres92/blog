@@ -63,18 +63,23 @@
   <main class="main-content">
     <div class="container-fluid photos">
       <div class="row align-items-stretch">
-        
-        <div class="col-6 col-md-6 col-lg-8" data-aos="fade-up">
+  
+  <% if (album) { %>      
+    <% for(var i=0; i < album.length; i++) { %>
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
           <a href="/photos" class="d-block photo-item">
-            <img src="images/img_4.jpg" alt="Image" class="img-fluid">
+            <img src="<%= album[i].mainPic %>" alt="Image" class="img-fluid">
             <div class="photo-text-more">
               <div class="photo-text-more">
-              <h3 class="heading">Photos Title Here</h3>
+              <h3 class="heading"><%= album[i].title %></h3>
               <span class="meta">42 Photos</span>
             </div>
             </div>
           </a>
         </div>
+      <% } %>
+  <% } %>      
+  <!--
         <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <a href="/photos" class="d-block photo-item">
             <img src="images/img_5.jpg" alt="Image" class="img-fluid">
@@ -283,7 +288,7 @@
             </div>
           </a>
         </div>
-        
+-->        
 
       </div>
 

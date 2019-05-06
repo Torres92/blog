@@ -18,6 +18,6 @@ const upload = multer({ storage: storage })
 
 router.post('/', upload.single('postImg'), posting.uploadHandler)
 
-router.post('/pics', upload.single('postImg'), posting.addPics)
+router.post('/pics/:id', upload.single('postImg'), posting.addPics)
 
 module.exports = router;

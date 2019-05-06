@@ -63,15 +63,17 @@
         </ul>
       </div>
     </header>
+   
     <main class="main-content">
 
       <div class="container-fluid photos">
 
 
         <div class="row align-items-stretch" id="fotos">
-
+<% if (album) { %>
+  
           <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up">
-            <form action="/post/pics" method="post" enctype="multipart/form-data">
+            <form action="/post/pics/<%= album._id %>" method="post" class="prospects_form" enctype="multipart/form-data">
               <a href="#" onclick="addPhoto()" class="d-block photo-item">
                 <img src="images/blank_.png" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
@@ -89,6 +91,8 @@
               </div>
             </form>
           </div>
+
+<% } %>
           <!--
             <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="100">
               <a href="#" class="d-block photo-item">
@@ -359,12 +363,37 @@
       console.log()
       var element = document.getElementById("file-input")
       element.click()
-      setTimeout(() => {
-        var element = document.getElementById("submit")
-      }, 10000)
     }
   </script>
   <script type="text/javascript">
+    $(document).ready(function () {
+      // Listen to submit event on the <form> itself!
+      $('.prospects_form').submit(function (e) {
+
+        // Prevent form submission which refreshes page
+        e.preventDefault();
+
+        var url = $('#file-input').val()
+/*
+
+        $.ajax({
+          url: '/post/pics/<%= album._id %>',
+          data: { url: url },
+          type: 'POST',
+        })*/
+        // Serialize data
+        //var formData = $(this).serialize();
+        //console.log('hey formData', formData);
+        // Make AJAX request
+        
+        $.post("/post/pics/<%= album._id %>", {
+              url: url
+            }
+          ).complete(function() {
+          console.log("Success");
+        });
+      });
+    });
     $(function () {
       $("#add").click(function () {
         var n = $('.pics').length;
