@@ -63,22 +63,22 @@
         </ul>
       </div>
     </header>
-   
+
     <main class="main-content">
 
       <div class="container-fluid photos">
 
 
         <div class="row align-items-stretch" id="fotos">
-<% if (album) { %>
-  
+          <% if (album) { %>
+
           <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up">
-            <form action="/post/pics/<%= album._id %>" method="post" class="prospects_form" enctype="multipart/form-data">
-              <a href="#" onclick="addPhoto()" class="d-block photo-item">
+            <form class="prospects_form">
+              <a onclick="addPhoto()" class="d-block photo-item">
                 <img src="images/blank_.png" alt="Image" class="img-fluid">
                 <div class="photo-text-more">
                   <div class="photo-text-more">
-                    <h3 class="heading" >Añadir Foto</h3>
+                    <h3 class="heading">Añadir Foto</h3>
                     <span class="meta">submit foto</span>
                   </div>
                 </div>
@@ -92,7 +92,7 @@
             </form>
           </div>
 
-<% } %>
+          <% } %>
           <!--
             <div class="col-6 col-md-6 col-lg-4 pics" data-aos="fade-up" data-aos-delay="100">
               <a href="#" class="d-block photo-item">
@@ -364,37 +364,85 @@
       var element = document.getElementById("file-input")
       element.click()
     }
+
   </script>
   <script type="text/javascript">
+    $('body').click(function (e) {
+
+      var target = $(e.target);
+      if (target.is('#submit')) {
+
+        console.log('targetttt', target[0].form.className)
+        var form = target[0].form.className
+        $('.prospects_form').submit(function (e) {
+
+          // Prevent form submission which refreshes page
+          e.preventDefault();
+
+          const formData = new FormData(this)
+          fetch('post/pics/<%= album._id %>', {
+            method: 'post',
+            body: formData
+          })
+            .then(function (response) {
+              return response.text()
+            })
+            .then(function (text) {
+              console.log(text)
+            })
+            .catch(e => {
+              console.error(e)
+            })
+        })
+      }
+    });
+
+
     $(document).ready(function () {
       // Listen to submit event on the <form> itself!
+
       $('.prospects_form').submit(function (e) {
 
         // Prevent form submission which refreshes page
         e.preventDefault();
 
-        var url = $('#file-input').val()
-/*
-
-        $.ajax({
-          url: '/post/pics/<%= album._id %>',
-          data: { url: url },
-          type: 'POST',
-        })*/
+        const formData = new FormData(this)
+        fetch('post/pics/<%= album._id %>', {
+          method: 'post',
+          body: formData
+        })
+          .then(function (response) {
+            return response.text()
+          })
+          .then(function (text) {
+            console.log(text)
+          })
+          .catch(e => {
+            console.error(e)
+          })
+        //var url = $('#file-input').val()*/
+        /*
+        
+                $.ajax({
+                  url: '/post/pics/<%= album._id %>',
+                  data: { url: url },
+                  type: 'POST',
+                })*/
         // Serialize data
         //var formData = $(this).serialize();
         //console.log('hey formData', formData);
         // Make AJAX request
-        
-        $.post("/post/pics/<%= album._id %>", {
-              url: url
-            }
-          ).complete(function() {
-          console.log("Success");
-        });
+        /*  
+          $.post("/post/pics/<%= album._id %>", {
+                url: url
+              }
+            ).complete(function() {
+            console.log("Success");
+          });*/
       });
     });
     $(function () {
+      var f = 0
       $("#add").click(function () {
         var n = $('.pics').length;
         if (n === 0 || n === 3 || n === 6 || n === 9 || n === 12 || n === 15 || n === 18 || n === 21 || n === 24 || n === 27 || n === 30 || n === 33 || n === 36 || n === 39 || n === 42 || n === 45 || n === 48 || n === 51 || n === 54 || n === 57 || n === 60 || n === 63 || n === 66 || n === 69 || n === 72 || n === 75 || n === 78 || n === 81 || n === 84
@@ -413,8 +461,8 @@
         console.log(n)
         div = document.createElement('div');
         $(div).addClass("col-6 col-md-6 col-lg-4 pics").html(
-          `<form action='/post/pics' method='post' enctype='multipart/form-data'>
-            <a href='#' onclick="addPhoto()" class='d-block photo-item'>
+          `<form class="prospects_form">
+            <a onclick="addPhoto()" class='d-block photo-item'>
               <img src='images/blank_.png' alt='Image' class='img-fluid'>
               <div class='photo-text-more'>
                 <div class='photo-text-more'>
@@ -425,7 +473,9 @@
               <input type='file' id='file-input' name='postImg' class='form-control' style='display: none;'>
             </a>
             <div class='row form-group'>
-              <div class='col-md-12'  style='text-align:center'><input type='submit' id='submit' value='Guardar' class='btn btn-primary btn-md text-white'></div>
+              <div class='col-md-12'  style='text-align:center'>
+                <input type="submit" id="submit" value="Guardar" class="btn btn-primary btn-md text-white">
+              </div>
             </div>
           </form>`);
         $(div).attr("data-aos", "fade-up");

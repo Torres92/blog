@@ -4,11 +4,15 @@ const Album = require('../models/album')
 
 exports.uploadHandler = (req, res) => {
 	console.log('hello album')
+
+	let pic = req.file.path
+	let pro = pic.split('public/').join('')
+	console.log('piccc', pro)
 	var newAlbum = new Album(
 		{
 			title: req.body.title,
 			description: req.body.description,
-			mainPic: req.file.path
+			mainPic: pro
 		}
 	)
 	newAlbum.save(function(err, album) {
@@ -24,9 +28,13 @@ exports.uploadHandler = (req, res) => {
 }
 
 exports.addPics = (req, res) => {
-	//console.log(req.file.path, req.body)
+	console.log(req.file.path, req.body)
 	const id = req.params.id
-	console.log('heyyyyyyy', id, req.body, req.file);
+	//const url = req.query.postImg
+	//const path = 'uploads/'+ url
+	console.log('heyyyyyyy');
+	let pic = req.file.path
+	let pro = pic.split('public/').join('')
 	Album.findOne({_id:id})
 		.then(album => {
 
@@ -34,13 +42,15 @@ exports.addPics = (req, res) => {
 				res.status(404).end('No album se encontraron')
 			}
 			album.pictures.push({
-				url: req.body.url
+				url: pro
 			})
 			album.save(function(err, album){
 				if(err){
 					return res.status(500).end('error')
 				}
-				return res.status(200).redirect('/addPhotos')
+				return res.status(200).render('addPhotos',{
+					album: album
+				})
 
 			})
 			
