@@ -3,7 +3,7 @@ const Album = require('../models/album')
 
 
 exports.uploadHandler = (req, res) => {
-	console.log('hello album')
+	console.log('hello album', req.body)
 
 	let pic = req.file.path
 	let pro = pic.split('public/').join('')
@@ -20,9 +20,7 @@ exports.uploadHandler = (req, res) => {
 			return res.status(500).end('error')
 		}
 		console.log(album._id, 'album')
-		return res.status(200).render('addPhotos',{
-			album: album
-		})
+		return res.status(200).redirect('/')
 	})
 
 }

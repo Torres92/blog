@@ -11,10 +11,8 @@ router.get('/blog', index.blog)
 
 router.get('/bio', index.bio)
 
-router.get('/newGallery', index.newGallery)
+router.get('/newPhoto', index.newPhoto)
 
-
-router.get('/addPhotos', index.add)
 
 
 module.exports = router;

@@ -12,9 +12,7 @@ let postSchema = new Schema({
 		}
 	],
 	mainPic: {type: String},
-	views: {
-		n: {type: Number, default:0}
-	},
+	views: {type: Number, default:0},
 	date: {type: Date, default: Date.now},
 	pictures: [{
 		url: {type: String} 

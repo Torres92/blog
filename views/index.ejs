@@ -51,7 +51,7 @@
         <li><a href="/photos">Photos</a></li>
         <li><a href="/bio">Bio</a></li>
         <li><a href="/blog">Blog</a></li>
-        <li><a href="/newGallery">Nueva Galeria</a></li>
+        <li><a href="/newPhoto">Nueva Foto</a></li>
       </ul>
       <ul class="social js-clone-nav">
         <li><a href="#"><span class="icon-facebook"></span></a></li>
@@ -63,23 +63,17 @@
   <main class="main-content">
     <div class="container-fluid photos">
       <div class="row align-items-stretch">
-  
-  <% if (album) { %>      
-    <% for(var i=0; i < album.length; i++) { %>
-        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="col-6 col-md-6 col-lg-8" data-aos="fade-up">
           <a href="/photos" class="d-block photo-item">
-            <img src="<%= album[i].mainPic %>" alt="Image" class="img-fluid">
+            <img src="images/img_5.jpg" alt="Image" class="img-fluid">
             <div class="photo-text-more">
               <div class="photo-text-more">
-              <h3 class="heading"><%= album[i].title %></h3>
-              <span class="meta">42 Photos</span>
+             <h3 class="heading">title here</h3>
+              <span class="meta">42 photos</span>
             </div>
             </div>
           </a>
-        </div>
-      <% } %>
-  <% } %>      
-  <!--
+        </div>   
         <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <a href="/photos" class="d-block photo-item">
             <img src="images/img_5.jpg" alt="Image" class="img-fluid">
@@ -88,16 +82,6 @@
               <h3 class="heading">Photos Title Here</h3>
               <span class="meta">42 Photos</span>
             </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-6 col-md-6 col-lg-3" data-aos="fade-up">
-          <a href="/photos" class="d-block photo-item">
-            <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-            <div class="photo-text-more">
-              <h3 class="heading">Photos Title Here</h3>
-              <span class="meta">42 Photos</span>
             </div>
           </a>
         </div>
@@ -112,6 +96,18 @@
             </div>
           </a>
         </div>
+        <div class="col-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <a href="/photos" class="d-block photo-item">
+            <img src="images/img_3.jpg" alt="Image" class="img-fluid">
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              <h3 class="heading">Photos Title Here</h3>
+              <span class="meta">42 Photos</span>
+            </div>
+            </div>
+          </a>
+        </div>
+
         <div class="col-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
           <a href="/photos" class="d-block photo-item">
             <img src="images/img_3.jpg" alt="Image" class="img-fluid">
@@ -288,8 +284,6 @@
             </div>
           </a>
         </div>
--->        
-
       </div>
 
       <div class="row justify-content-center">
