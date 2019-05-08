@@ -28,13 +28,15 @@ exports.uploadHandler = (req, res) => {
 }
 
 exports.addPics = (req, res) => {
-	console.log(req.file.path, req.body)
+console.log('heyyyyyyyyyyyyyyyyyheyyyyyyyyyyyyyyyyyheyyyyyyyyyyyyyyyyy');
+//	console.log(req.file.path, req.body)
 	const id = req.params.id
 	//const url = req.query.postImg
 	//const path = 'uploads/'+ url
-	console.log('heyyyyyyy');
+	console.log('heyyyyyyy', id, req.file);
 	let pic = req.file.path
 	let pro = pic.split('public/').join('')
+	console.log('heyyyy 333');
 	Album.findOne({_id:id})
 		.then(album => {
 
