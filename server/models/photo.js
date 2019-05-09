@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 let Schema = mongoose.Schema
 
-let postSchema = new Schema({
+let photoSchema = new Schema({
 	title: {type: String, lowercase: true},
 	description: {type: String, lowercase: true},
 	tags: [
@@ -31,4 +31,4 @@ let postSchema = new Schema({
 
 
 
-module.exports = mongoose.model('Post', postSchema);
+module.exports = mongoose.model('Photo', photoSchema);

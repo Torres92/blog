@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Album = require('../models/album')
+const Photo = require('../models/photo')
 
 
 exports.uploadHandler = (req, res) => {
@@ -8,18 +8,18 @@ exports.uploadHandler = (req, res) => {
 	let pic = req.file.path
 	let pro = pic.split('public/').join('')
 	console.log('piccc', pro)
-	var newAlbum = new Album(
+	var newPhoto = new Photo(
 		{
 			title: req.body.title,
 			description: req.body.description,
 			mainPic: pro
 		}
 	)
-	newAlbum.save(function(err, album) {
+	newPhoto.save(function(err, photo) {
 		if(err){
 			return res.status(500).end('error')
 		}
-		console.log(album._id, 'album')
+		console.log(photo._id, 'album')
 		return res.status(200).redirect('/')
 	})
 
