@@ -25,3 +25,11 @@ exports.uploadHandler = (req, res) => {
 
 }
 
+exports.single = (req, res) => {
+	const photoId = req.params.id
+
+	if(!photoId) return res.status(409).send('No se recibió el id de la imagen')
+
+	Album.findById(photoId)
+}
+
