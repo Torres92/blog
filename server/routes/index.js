@@ -7,14 +7,12 @@ router.get('/', index.home)
 
 router.get('/photos', index.photos)
 
-router.get('/blog', index.blog)
+//router.get('/blog', index.blog)
 
-router.get('/bio', index.bio)
+//router.get('/bio', index.bio)
 
-router.get('/contact', index.contact)
+router.get('/newPhoto', index.newPhoto)
 
-
-router.get('/newpost', index.newpost)
 
 
 module.exports = router;

@@ -1,6 +1,6 @@
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
-//require('./server/config/config');
+require('./server/config/config');
 
 
 let configt = {
@@ -9,7 +9,7 @@ let configt = {
 	useFindAndModify:false
 }
 
-mongoose.connect('mongodb://localhost:27017/blog',configt, (err, res)=>{
+mongoose.connect(process.env.URLDB,configt, (err, res)=>{
 
   if( err ) throw err;
 
