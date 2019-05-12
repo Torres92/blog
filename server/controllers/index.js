@@ -9,7 +9,7 @@ exports.home = (req, res) => {
 
 exports.photos = async (req, res) => {
 	try {
-		var photos = Photo.find()
+		var photos = await Photo.find()
 		console.log(photos)
 	} catch (e) {
 		return res.status(500).render('error')
