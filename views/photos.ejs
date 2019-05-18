@@ -70,7 +70,7 @@
           <% if (photos) { %>
           <% for(var i=0; i < photos.length; i++) { %>
           <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="/photos" class="d-block photo-item">
+            <a href="/single/<%= photos[i]._id %>" class="d-block photo-item">
               <img src="<%= photos[i].mainPic %>" alt="Image" class="img-fluid">
               <div class="photo-text-more">
                 <div class="photo-text-more">

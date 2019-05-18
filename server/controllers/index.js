@@ -8,7 +8,7 @@ exports.home = (req, res) => {
 }
 
 exports.photos = async (req, res) => {
-	try {
+	try { 
 		var photos = await Photo.find()
 		console.log(photos)
 	} catch (e) {
@@ -19,10 +19,40 @@ exports.photos = async (req, res) => {
 	})
 }
 
-/*
-exports.bio = (req, res) => {
-			res.status(200).render('bio')
-}*/
+
+exports.single = async (req, res, next) => {
+	const photoId = req.params.id
+
+console.log('hey photoId', photoId);
+	if(!photoId) { 
+		console.log('No se recibió el id de la foto');
+		return res.status(400).render('index',{
+			message: 'No se recibió el id de la foto'
+		})
+	}
+
+	try {
+		let photo = await Photo.findById(photoId)
+		req.photo = photo
+		console.log(photo, 'hey foyooooo');
+		if(!photo) {
+			return res.status(404).redirect('/')
+		}
+	} catch(e) {
+		return res.status(500).send('Internal Server Error')
+	}
+	
+	next();
+}
+
+exports.renderSingle = (req, res) => {
+	let photo = req.photo
+	if(!photo) return res.status(404).redirect('/')
+
+	res.render('single', {
+		photo
+	})	
+}
 
 exports.newPhoto = (req, res) => {
 			res.status(200).render('newGallery')

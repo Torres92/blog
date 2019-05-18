@@ -7,7 +7,7 @@ router.get('/', index.home)
 
 router.get('/photos', index.photos)
 
-//router.get('/blog', index.blog)
+router.get('/single/:id', index.single, index.renderSingle)
 
 //router.get('/bio', index.bio)
 
