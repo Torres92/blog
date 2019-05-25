@@ -6,6 +6,7 @@ exports.uploadHandler = (req, res) => {
 	console.log('hello album', req.body)
 
 	let pic = req.file.path
+
 	//return console.log(req.file);
 	//let pro = pic.split('public/').join('')
 	//&&console.log('piccc', pro)
@@ -33,4 +34,3 @@ exports.single = (req, res) => {
 
 	Album.findById(photoId)
 }
-
