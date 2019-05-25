@@ -6,13 +6,14 @@ exports.uploadHandler = (req, res) => {
 	console.log('hello album', req.body)
 
 	let pic = req.file.path
-	let pro = pic.split('public/').join('')
-	console.log('piccc', pro)
+	//return console.log(req.file);
+	//let pro = pic.split('public/').join('')
+	//&&console.log('piccc', pro)
 	var newPhoto = new Photo(
 		{
 			title: req.body.title,
 			description: req.body.description,
-			mainPic: pro
+			mainPic: req.file.filename
 		}
 	)
 	newPhoto.save(function(err, photo) {
